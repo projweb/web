@@ -11,12 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160915065210) do
+ActiveRecord::Schema.define(version: 20160915085128) do
 
   create_table "beers", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "note"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "brewerie_id"
+  end
+
+  add_index "beers", ["brewerie_id"], name: "index_beers_on_brewerie_id"
+
+  create_table "breweries", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
