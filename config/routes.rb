@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :beer_geeks
   resources :breweries
   resources :beers
   # The priority is based upon order of creation: first created -> highest priority.
